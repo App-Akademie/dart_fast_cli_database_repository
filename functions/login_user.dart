@@ -13,7 +13,10 @@
 
 import 'dart:io';
 
-bool loginUser(String expectedUserName, String expectedUserPassword) {
+import '../data/database_repository.dart';
+
+//bool loginUser(String expectedUserName, String expectedUserPassword) {
+bool loginUser(DatabaseRepository databaseRepository) {
   bool didUserLogInCorrectly = false;
   // Benutzername und Passwort abfragen.
   // Schauen, ob es mit gespeicherten Daten übereinstimmt.
@@ -30,8 +33,10 @@ bool loginUser(String expectedUserName, String expectedUserPassword) {
   inputUserPassword = stdin.readLineSync()!;
 
   // Schauen, ob es mit gespeicherten Daten übereinstimmt.
-  bool isLoginDataCorrect = inputUserName == expectedUserName &&
-      inputUserPassword == expectedUserPassword;
+  bool isLoginDataCorrect = databaseRepository.checkUserCredentials(
+    userName: inputUserName,
+    password: inputUserPassword,
+  );
 
   if (isLoginDataCorrect) {
     print("Du hast dich erfolgreich eingeloggt");
