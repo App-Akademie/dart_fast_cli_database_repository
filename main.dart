@@ -4,6 +4,7 @@ import 'data/database_repository.dart';
 import 'data/mock_database.dart';
 import 'functions/ask_problems.dart';
 import 'functions/login_user.dart';
+import 'models/user.dart';
 
 // Login, damit der Fortschritt online gespeichert wird.
 // Anzeigen von Code Snippets, bei denen gesagt werden soll, was rauskommt.
@@ -11,6 +12,8 @@ import 'functions/login_user.dart';
 
 void main() {
   DatabaseRepository databaseRepository = MockDatabase();
+  // Weil am Anfang KEIN User eingeloggt ist, kann die Variable null sein.
+  User? currentlyLoggedInUser;
 
   // Login, damit der Fortschritt online gespeichert wird.
   // Anzeigen von Code Snippets, bei denen gesagt werden soll, was rauskommt.

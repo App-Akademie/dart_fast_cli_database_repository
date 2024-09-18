@@ -15,7 +15,7 @@ void main() {
 
   printAllUsers(allUsers);
 
-  bool isLoginDataCorrect = testDatabase.checkUserCredentials(
+  bool isLoginDataCorrect = testDatabase.login(
     userName: "Viktor",
     password: "passwort123",
   );
@@ -25,7 +25,7 @@ void main() {
     print("Falsche Daten angegeben");
   }
 
-  isLoginDataCorrect = testDatabase.checkUserCredentials(
+  isLoginDataCorrect = testDatabase.login(
     userName: "Fadi",
     password: "",
   );

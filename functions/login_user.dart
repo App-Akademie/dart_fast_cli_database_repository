@@ -33,12 +33,12 @@ bool loginUser(DatabaseRepository databaseRepository) {
   inputUserPassword = stdin.readLineSync()!;
 
   // Schauen, ob es mit gespeicherten Daten übereinstimmt.
-  bool isLoginDataCorrect = databaseRepository.checkUserCredentials(
+  bool didLoginSucceed = databaseRepository.login(
     userName: inputUserName,
     password: inputUserPassword,
   );
 
-  if (isLoginDataCorrect) {
+  if (didLoginSucceed) {
     print("Du hast dich erfolgreich eingeloggt");
     print("");
     didUserLogInCorrectly = true;

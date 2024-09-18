@@ -11,6 +11,4 @@ class Problem {
 
   Problem.solved({required this.exercise, required this.solution})
       : this.solved = true;
-  Problem.unsolved({required this.exercise, required this.solution})
-      : this.solved = false;
 }
